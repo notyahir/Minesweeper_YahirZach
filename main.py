@@ -20,4 +20,8 @@ if __name__ == '__main__':
     # That's all you bbg
 print("hi")
 print("yahir is so fine")
+
+x = 4
+if x == 4:
+    print(x * 2)
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
