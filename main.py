@@ -18,5 +18,6 @@ if __name__ == '__main__':
     # Hello Zachary
     # Hi Yahir, you p cute ;)
     # That's all you bbg
-
+print("hi")
+print("yahir is so fine")
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
