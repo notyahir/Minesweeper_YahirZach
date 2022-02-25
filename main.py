@@ -1,27 +1,10 @@
-# This is a sample Python script.
+import random
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-from tkinter import *
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-    print("Hello World")
-    # How are you today?
-    # Hello Zachary
-    # Hi Yahir, you p cute ;)
-    # That's all you bbg
-print("hi")
-print("yahir is so fine")
-
-x = 4
-if x == 4:
-    print(x * 2)
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Defines circle flags for placement
+def flag(x, y):
+    circle = Circle(10)
+    circle.set_color(Color.red)
+    circle.set_position(x, y)
+    add(circle)
+# Creates the mouse event for clicks
+add_mouse_click_handler(flag)
