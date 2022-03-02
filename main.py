@@ -1,19 +1,24 @@
 import random
 
 #Board
-row1 = ["1", "2", "3", "4", "5"]
-row2 = ["6", "7", "8", "9", "10"]
+
+row1 = ["1 ", "2 ", "3 ", "4 ", "5  "]
+row2 = ["6 ", "7 ", "8 ", "9 ", "10"]
 row3 = ["11", "12", "13", "14", "15"]
 row4 = ["16", "17", "18", "19", "20"]
 row5 = ["21", "22", "23", "24", "25"]
 
+board = [
+    row1,
+    row2,
+    row3,
+    row4,
+    row5
+]
 #Prints the board
 def print_rows():
-    print(row1)
-    print(row2)
-    print(row3)
-    print(row4)
-    print(row5)
+    for i in range(len(board)):
+        print("  ".join(board[i]))
 
 print_rows()
 
@@ -24,6 +29,7 @@ def place_flag():
     while choices > 0:
         row_coordinate = input("Please choose a spot on the board. ")
         if row_coordinate == "1":
+            print()
             row1[0] = "X"
             print_rows()
             choices = choices - 1
