@@ -26,8 +26,12 @@ print_rows()
 #Defines the where the user can click, if they hit a bomb they lose (5 bombs)
 def place_flag():
     choices = 5
-    while choices > 0:
+    while choices > -1:
         row_coordinate = input("Please choose a spot on the board. ")
+        if choices == 0:
+            print("You ran out of moves.")
+            win()
+            break
         if row_coordinate == "1":
             print()
             row1[0] = "X"
@@ -156,9 +160,6 @@ def place_flag():
             continue
         else:
             print("That wasn't a valid choice")
-        if choices == 0:
-            print("You ran out of moves.")
-        win()
 
 def win():
     if row1[1] and row2[1] and row3[0] and row3[3] and row4[0] != "X":
