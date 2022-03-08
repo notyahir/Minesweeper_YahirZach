@@ -1,7 +1,4 @@
-import random
-
 #Board
-
 row1 = ["1 ", "2 ", "3 ", "4 ", "5  "]
 row2 = ["6 ", "7 ", "8 ", "9 ", "10"]
 row3 = ["11", "12", "13", "14", "15"]
@@ -15,15 +12,15 @@ board = [
     row4,
     row5
 ]
-#Prints the board
+#Prints the board after every move
 def print_rows():
     for i in range(len(board)):
         print("  ".join(board[i]))
 
 print_rows()
 
-
-#Defines the where the user can click, if they hit a bomb they lose (5 bombs)
+#Defines the coordinates the user can select (1-25), if they hit a bomb they lose (5 bombs), user is
+#prompted to enter a new coordinate if they input one that is not listed on the board.
 def place_flag():
     choices = 5
     while choices > -1:
@@ -160,11 +157,12 @@ def place_flag():
             continue
         else:
             print("That wasn't a valid choice")
-
+#Defines a win function if the user successfully avoids all bombs by the end of their moves
 def win():
     if row1[1] and row2[1] and row3[0] and row3[3] and row4[0] != "X":
         print("You won!")
 
+#Calls place_flag function
 place_flag()
 
 
