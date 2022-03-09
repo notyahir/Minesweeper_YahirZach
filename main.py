@@ -1,3 +1,4 @@
+#Note: Found bug that you can use the same coordinate more than one time 6 times in a row to win the game
 #Board
 row1 = ["1 ", "2 ", "3 ", "4 ", "5  "]
 row2 = ["6 ", "7 ", "8 ", "9 ", "10"]
