@@ -1,3 +1,6 @@
+
+import random
+
 #Note: Found bug that you can use the same coordinate more than one time 6 times in a row to win the game
 #Board
 row1 = ["1 ", "2 ", "3 ", "4 ", "5  "]
@@ -13,12 +16,70 @@ board = [
     row4,
     row5
 ]
-#Prints the board after every move
-def print_rows():
-    for i in range(len(board)):
-        print("  ".join(board[i]))
 
-print_rows()
+# Bomb board that is going to be altered to determine where the bombs should be randomized.
+
+rowB1 = ["1 ", "2 ", "3 ", "4 ", "5  "]
+rowB2 = ["6 ", "7 ", "8 ", "9 ", "10"]
+rowB3 = ["11", "12", "13", "14", "15"]
+rowB4 = ["16", "17", "18", "19", "20"]
+rowB5 = ["21", "22", "23", "24", "25"]
+
+bomb_Board = [
+    rowB1,
+    rowB2,
+    rowB3,
+    rowB4,
+    rowB5
+]
+
+
+# Prints the board after every move
+def print_rows(gameBoard):
+    for i in range(len(gameBoard)):
+        print("  ".join(gameBoard[i]))
+
+
+print_rows(board)
+
+print()
+
+
+def random_bombs():
+    for value in range(len(bomb_Board)):
+        random_row = random.randint(0, len(bomb_Board) - 1)
+        random_element = random.randint(0, len(bomb_Board) - 1)
+        bomb_Board[random_row][random_element] = "Bb"
+
+
+random_bombs()
+
+print_rows(bomb_Board)
+
+bomb = False
+def flag_place():
+    global bomb
+    x = 0
+    while not bomb:
+        row_coordinate = input("Please choose a spot on the board. ")
+        row_coordinateTest = row_coordinate + " "
+        for values in board:
+                if row_coordinateTest in values:
+                    for elements in bomb_Board:
+                        if row_coordinateTest in elements:
+                            board[board.index(values)][values.index(row_coordinateTest)] = "X "
+
+                        else:
+                            # board[board.index(values)][values.index(row_coordinateTest)] = "Bb"
+                            if x == 0:
+                                x += 1
+                                print("You hit a bomb, you lose")
+                                bomb = True
+                                continue
+        if not bomb:
+            print_rows(board)
+
+
 
 #Defines the coordinates the user can select (1-25), if they hit a bomb they lose (5 bombs), user is
 #prompted to enter a new coordinate if they input one that is not listed on the board.
@@ -164,7 +225,7 @@ def win():
         print("You won!")
 
 #Calls place_flag function
-place_flag()
+flag_place()
 
 
 
