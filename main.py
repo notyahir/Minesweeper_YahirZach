@@ -3,7 +3,7 @@ import random
 
 #Note: Found bug that you can use the same coordinate more than one time 6 times in a row to win the game
 #Board
-row1 = ["1 ", "2 ", "3 ", "4 ", "5  "]
+row1 = ["1 ", "2 ", "3 ", "4 ", "5 "]
 row2 = ["6 ", "7 ", "8 ", "9 ", "10"]
 row3 = ["11", "12", "13", "14", "15"]
 row4 = ["16", "17", "18", "19", "20"]
@@ -55,6 +55,7 @@ def random_bombs():
 random_bombs()
 
 print_rows(bomb_Board)
+print()
 
 bomb = False
 def flag_place():
@@ -68,9 +69,8 @@ def flag_place():
                     for elements in bomb_Board:
                         if row_coordinateTest in elements:
                             board[board.index(values)][values.index(row_coordinateTest)] = "X "
-
+                            break
                         else:
-                            # board[board.index(values)][values.index(row_coordinateTest)] = "Bb"
                             if x == 0:
                                 x += 1
                                 print("You hit a bomb, you lose")
