@@ -34,9 +34,9 @@ bomb_Board = [
 
 
 # Prints the board after every move
-def print_rows(gameBoard):
-    for i in range(len(gameBoard)):
-        print("  ".join(gameBoard[i]))
+def print_rows(game_board):
+    for i in range(len(game_board)):
+        print("  ".join(game_board[i]))
 
 
 print_rows(board)
@@ -90,14 +90,17 @@ def flag_place():
 # Defines the coordinates the user can select (1-25), if they hit a bomb they lose (5 bombs), user is
 # prompted to enter a new coordinate if they input one that is not listed on the board.
 
+
 '''
 print("That wasn't a valid choice")
 '''
+
 
 # Defines a win function if the user successfully avoids all bombs by the end of their moves
 def win():
     if row1[1] and row2[1] and row3[0] and row3[3] and row4[0] != "X":
         print("You won!")
+
 
 # Calls place_flag function
 flag_place()
