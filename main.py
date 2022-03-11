@@ -89,149 +89,15 @@ def flag_place():
 
 # Defines the coordinates the user can select (1-25), if they hit a bomb they lose (5 bombs), user is
 # prompted to enter a new coordinate if they input one that is not listed on the board.
-def place_flag():
-    choices = 5
-    while choices > -1:
-        row_coordinate = input("Please choose a spot on the board. ")
-        if choices == 0:
-            print("You ran out of moves.")
-            win()
-            break
-        if row_coordinate == "1":
-            print()
-            row1[0] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "2":
-            row1[1] = "B"
-            print_rows()
-            print("You hit a bomb, you lose")
-            break
-        elif row_coordinate == "3":
-            row1[2] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "4":
-            row1[3] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "5":
-            row1[4] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "6":
-            row2[0] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "7":
-            row1[1] = "B"
-            print_rows()
-            print("You hit a bomb, you lose")
-            break
-        elif row_coordinate == "8":
-            row1[2] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "9":
-            row1[3] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "10":
-            row1[4] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "11":
-            row1[0] = "B"
-            print_rows()
-            print("You hit a bomb, you lose")
-            break
-        elif row_coordinate == "12":
-            row1[1] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "13":
-            row1[2] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "14":
-            row1[3] = "B"
-            print_rows()
-            print("You hit a bomb, you lose")
-            break
-        elif row_coordinate == "15":
-            row1[4] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "16":
-            row1[0] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "17":
-            row1[1] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "18":
-            row1[2] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "19":
-            row1[3] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "20":
-            row1[4] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "21":
-            row1[0] = "B"
-            print_rows()
-            print("You hit a bomb, you lose")
-            break
-        elif row_coordinate == "22":
-            row1[1] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "23":
-            row1[2] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "24":
-            row1[3] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        elif row_coordinate == "25":
-            row1[4] = "X"
-            print_rows()
-            choices = choices - 1
-            continue
-        else:
-            print("That wasn't a valid choice")
 
+'''
+print("That wasn't a valid choice")
+'''
 
 # Defines a win function if the user successfully avoids all bombs by the end of their moves
 def win():
     if row1[1] and row2[1] and row3[0] and row3[3] and row4[0] != "X":
         print("You won!")
-
 
 # Calls place_flag function
 flag_place()
