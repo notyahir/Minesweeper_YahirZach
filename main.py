@@ -39,11 +39,6 @@ def print_rows(game_board):
         print("  ".join(game_board[i]))
 
 
-print_rows(board)
-
-print()
-
-
 def random_bombs():
     for value in range(len(bomb_Board)):
         random_row = random.randint(0, len(bomb_Board) - 1)
@@ -51,18 +46,11 @@ def random_bombs():
         bomb_Board[random_row][random_element] = "Bb"
 
 
-random_bombs()
-
-print_rows(bomb_Board)
-print()
-
 bombHit = False
 value_in_board = False
 
-
 def flag_place():
     global bombHit, value_in_board
-    x = 0
     while not bombHit:
         row_coordinate = input("Please choose a spot on the board. ")
         print()
@@ -86,14 +74,12 @@ def flag_place():
     if bombHit:
         print("You hit a bomb, you lose")
         # print_rows(bomb_Board)
+    else:
+        print("You win!")
+
 
 # Defines the coordinates the user can select (1-25), if they hit a bomb they lose (5 bombs), user is
 # prompted to enter a new coordinate if they input one that is not listed on the board.
-
-
-'''
-print("That wasn't a valid choice")
-'''
 
 
 # Defines a win function if the user successfully avoids all bombs by the end of their moves
@@ -101,5 +87,10 @@ def win():
     if row1[1] and row2[1] and row3[0] and row3[3] and row4[0] != "X":
         print("You won!")
 
-# Calls place_flag function
-flag_place()
+
+if __name__ == "__main__":
+    print_rows(board)
+    print()
+    random_bombs()
+    # Calls place_flag function
+    flag_place()
