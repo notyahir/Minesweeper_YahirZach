@@ -101,6 +101,5 @@ def win():
     if row1[1] and row2[1] and row3[0] and row3[3] and row4[0] != "X":
         print("You won!")
 
-
 # Calls place_flag function
 flag_place()
