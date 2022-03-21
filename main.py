@@ -51,25 +51,34 @@ value_in_board = False
 
 def flag_place():
     global bombHit, value_in_board
+    choices = 5
     while not bombHit:
-        row_coordinate = input("Please choose a spot on the board. ")
-        print()
-        row_coordinate_single = row_coordinate + " "
-        for elements in bomb_Board:
-            if row_coordinate_single in elements:
-                board[bomb_Board.index(elements)][elements.index(row_coordinate_single)] = "X "
-                value_in_board = True
-            elif row_coordinate in elements:
-                board[bomb_Board.index(elements)][elements.index(row_coordinate)] = "X "
-                value_in_board = True
-            else:
+        while choices > 0:
+            print()
+            print("You have " + str(choices) + " choices left!")
+            row_coordinate = input("Please choose a spot on the board. ")
+            print()
+            row_coordinate_single = row_coordinate + " "
+            for elements in bomb_Board:
+                if row_coordinate_single in elements:
+                    board[bomb_Board.index(elements)][elements.index(row_coordinate_single)] = "X "
+                    value_in_board = True
+                elif row_coordinate in elements:
+                    board[bomb_Board.index(elements)][elements.index(row_coordinate)] = "X "
+                    value_in_board = True
+                else:
+                    continue
+            if not value_in_board:
+                bombHit = True
                 continue
-        if not value_in_board:
-            bombHit = True
-            continue
-        else:
-            value_in_board = False
-            print_rows(board)
+            else:
+                value_in_board = False
+                print_rows(board)
+
+            choices -= 1
+        if choices == 0:
+            print("You ran out of options, so...")
+            break
 
     if bombHit:
         print("You hit a bomb, you lose")
@@ -78,8 +87,9 @@ def flag_place():
         print("You win!")
 
 
-# Defines the coordinates the user can select (1-25), if they hit a bomb they lose (5 bombs), user is
-# prompted to enter a new coordinate if they input one that is not listed on the board.
+
+# Defines the coordinates the user can select (1-25), if they hit a bomb ton the board.hey lose (5 bombs), user is
+# prompted to enter a new coordinate if they input one that is not listed
 
 
 # Defines a win function if the user successfully avoids all bombs by the end of their moves
