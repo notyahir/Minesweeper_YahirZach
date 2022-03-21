@@ -54,6 +54,8 @@ def flag_place():
     choices = 5
     while not bombHit:
         while choices > 0:
+            if bombHit == True:
+                break
             print()
             print("You have " + str(choices) + " choices left!")
             row_coordinate = input("Please choose a spot on the board. ")
@@ -77,8 +79,9 @@ def flag_place():
 
             choices -= 1
         if choices == 0:
-            print("You ran out of options, so...")
+            print("No more choices so you win!")
             break
+
 
     if bombHit:
         print("You hit a bomb, you lose")
